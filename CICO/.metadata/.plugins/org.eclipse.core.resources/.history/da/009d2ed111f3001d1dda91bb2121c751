@@ -1,0 +1,31 @@
+package com.cico.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.cico.exception.StudentNotFoundException;
+import com.cico.model.Student;
+import com.cico.repository.StudentRepository;
+import com.cico.service.IStudentService;
+
+@Service
+public class StudentServiceImpl implements IStudentService,UserDetailsService{
+
+	@Autowired
+	private StudentRepository studentRepository;
+	
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Student student = studentRepository.findByUserIdAndIsActiveAndIsCompleted(username, true, false).orElseThrow(()-> new StudentNotFoundException("STUDENT_NOT_FOUND"));
+		List<GrantedAuthority> authorities  = List.of(new SimpleGrantedAuthority("STUDENT"));
+		return new User(username, student.getPassword(), authorities);
+	}
+
+}

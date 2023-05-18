@@ -1,0 +1,5 @@
+package com.cico.requestDto;
+
+public class JwtRequestDto {
+
+}

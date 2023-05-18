@@ -1,0 +1,5 @@
+package com.cico.exception;
+
+public class StudentNotFoundException {
+
+}

@@ -1,0 +1,6 @@
+package com.cico.service;
+
+public interface IStudentService {
+
+	
+}

@@ -1,0 +1,5 @@
+package com.cico.filter;
+
+public class SecurityFilter {
+
+}

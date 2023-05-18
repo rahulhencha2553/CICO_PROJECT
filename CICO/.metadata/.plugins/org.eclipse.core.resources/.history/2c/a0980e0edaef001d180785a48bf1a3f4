@@ -1,0 +1,5 @@
+package com.cico.restController;
+
+public class StudentController {
+
+}

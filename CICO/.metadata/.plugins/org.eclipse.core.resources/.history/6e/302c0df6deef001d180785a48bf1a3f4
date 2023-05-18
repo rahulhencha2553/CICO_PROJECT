@@ -1,0 +1,17 @@
+package com.cico.serviceImpl;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.cico.service.IStudentService;
+
+public class StudentServiceImpl implements IStudentService,UserDetailsService{
+
+	
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
+		return null;
+	}
+
+}

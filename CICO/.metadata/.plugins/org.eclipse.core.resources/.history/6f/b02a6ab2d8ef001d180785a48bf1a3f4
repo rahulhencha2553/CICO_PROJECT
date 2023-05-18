@@ -1,0 +1,5 @@
+package com.cico.responseDto;
+
+public class ApiResponseDto {
+
+}
